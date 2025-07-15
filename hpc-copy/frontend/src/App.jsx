@@ -43,7 +43,7 @@ function App() {
               <Route path="users/:id" element={<UserDetailScreen />} />
               <Route path="userlist" element={<UserListScreen />} />
               <Route path="queuemanage" element={<QueueManage />} />
-              <Route path="jobmonitoring" element={<JobsListScreen />} />
+              <Route path="jobhistory" element={<JobsListScreen />} />
               <Route path="cluster" element={<Cluster/>} />
               <Route path="networking" element={<NetworkingScreen />} />
               <Route path="slurmworkload" element={<WorkloadScreen />} />

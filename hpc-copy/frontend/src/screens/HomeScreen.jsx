@@ -21,7 +21,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { useLogoutMutation } from "@/slices/userApiSlice";
 import { logout } from "@/slices/authSlice";
-import logo from '../assets/logo.png'
+import logo from "../assets/logo.png";
 
 function HomeScreen() {
   const [isAsideOpen, setIsAsideOpen] = useState(true);
@@ -36,11 +36,11 @@ function HomeScreen() {
     try {
       await logoutApiCall().unwrap();
       dispatch(logout());
-      navigate('/');
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   const toggleAside = () => {
     setIsAsideOpen((prevIsAsideOpen) => !prevIsAsideOpen);
@@ -49,17 +49,15 @@ function HomeScreen() {
   return (
     <div className="flex flex-col h-screen bg-gray-50">
       <header
-        className={`flex justify-between items-center bg-purple-600 px-4 py-4 ${!isAsideOpen ? "mb-12" : ""
-          }`}
+        className={`flex justify-between items-center bg-purple-600 px-4 py-4 ${
+          !isAsideOpen ? "mb-12" : ""
+        }`}
       >
         <button className="text-white focus:outline-none" onClick={toggleAside}>
           {isAsideOpen ? <RiCloseLine size={24} /> : <RiMenuLine size={24} />}
         </button>
         <div className="w-52">
-          <img
-            src={logo}
-            alt=""
-          />
+          <img src={logo} alt="" />
         </div>
         <div className="flex justify-center items-center">
           <h1 className="hidden sm:block text-white text-2xl font-bold mr-2 ">
@@ -69,7 +67,9 @@ function HomeScreen() {
             <SheetTrigger asChild>
               <Avatar variant="outline" className="cursor-pointer">
                 <AvatarImage />
-                <AvatarFallback>{userInfo.username.toUpperCase()[0]}</AvatarFallback>
+                <AvatarFallback>
+                  {userInfo.username.toUpperCase()[0]}
+                </AvatarFallback>
               </Avatar>
             </SheetTrigger>
 
@@ -78,29 +78,29 @@ function HomeScreen() {
                 {/* <SheetTitle>Edit profile</SheetTitle> */}
               </SheetHeader>
               <div className="grid gap-4 py-4 mt-6">
-                <div className="flex  items-center">
-                  <CgProfile className="text-2xl" />
-                  <a
-                    href="#"
-                    className=" px-4 py-2 text-lg font-bold text-gray-700 data-[focus]:bg-gray-100"
-                  >
-                    Your Profile
-                  </a>
-                </div>
-                <div className="flex  items-center">
-                  <IoMdSettings className="text-2xl" />
-                  <a
-                    href="#"
-                    className=" px-4 py-2 text-lg font-bold text-gray-700 data-[focus]:bg-gray-100"
-                  >
-                    Settings
-                  </a>
+                {/* ✅ Updated Profile Link */}
+                <div
+                  onClick={() => navigate(`/users/${userInfo.uId}`)}
+                  className="flex items-center cursor-pointer px-4 py-2 text-lg font-bold text-gray-700 hover:bg-gray-300 rounded"
+                >
+                  <CgProfile className="text-2xl mr-2" />
+                  Your Profile
                 </div>
 
+                {/* ✅ Original Settings (unchanged) */}
+                <div className="flex items-center cursor-pointer px-4 py-2 text-lg font-bold text-gray-700 hover:bg-gray-300 rounded">
+                  <IoMdSettings className="text-2xl mr-2" />
+                  Settings
+                </div>
+
+                {/* ✅ Logout button (unchanged) */}
                 <SheetClose asChild>
-                  <Button type="submit" onClick={logoutHandler}>Logout</Button>
+                  <Button type="submit" onClick={logoutHandler}>
+                    Logout
+                  </Button>
                 </SheetClose>
               </div>
+
               <SheetFooter></SheetFooter>
             </SheetContent>
           </Sheet>
@@ -108,28 +108,27 @@ function HomeScreen() {
         {/* <h1 className="text-white text-2xl font-bold">VR Mens Clothing</h1> */}
       </header>
 
-
-      
       <div className="flex lg:flex-1 lg:flex-row flex-col gap-12 overflow-hidden">
-        {userInfo.role === 'admin' ? (
+        {userInfo.role === "admin" ? (
           <aside
-            className={`bg-gray-200 lg:w-72 ${isAsideOpen ? "block" : "hidden"}`}
+            className={`bg-gray-200 lg:w-72 ${
+              isAsideOpen ? "block" : "hidden"
+            }`}
           >
             <nav className="p-4">
-
               <div className="flex items-center  gap-x-4 px-2 ">
-
                 <Avatar variant="outline" className="cursor-pointer w-16 h-16">
                   <AvatarImage />
-                  <AvatarFallback>{userInfo.username.toUpperCase()[0]}</AvatarFallback>
+                  <AvatarFallback>
+                    {userInfo.username.toUpperCase()[0]}
+                  </AvatarFallback>
                 </Avatar>
 
-                <h2 className="text-lg font-bold text-gray-700 data-[focus]:bg-gray-100">{userInfo.username.toUpperCase()}</h2>
+                <h2 className="text-lg font-bold text-gray-700 data-[focus]:bg-gray-100">
+                  {userInfo.username.toUpperCase()}
+                </h2>
               </div>
-              <div className="border-gray-400 border-b-2 pb-4 ">
-
-              </div>
-
+              <div className="border-gray-400 border-b-2 pb-4 "></div>
 
               <ul className="text-lg font-bold text-gray-700 data-[focus]:bg-gray-100 p-6">
                 <li className="flex  items-center mb-3 gap-x-2 text-center ">
@@ -145,7 +144,7 @@ function HomeScreen() {
                   </NavLink>
                 </li>
                 <li className="flex  items-center mb-3 gap-x-2 text-center ">
-                <GrCluster />
+                  <GrCluster />
                   <NavLink
                     to="/cluster"
                     className={({ isActive }) =>
@@ -158,7 +157,7 @@ function HomeScreen() {
                 </li>
 
                 <li className="flex  items-center mb-3 gap-x-2 text-center ">
-                <IoGitNetworkOutline />
+                  <IoGitNetworkOutline />
                   <NavLink
                     to="/networking"
                     className={({ isActive }) =>
@@ -169,7 +168,7 @@ function HomeScreen() {
                     Networking
                   </NavLink>
                 </li>
-                
+
                 <li className=" flex  items-center mb-3 gap-x-2 text-center">
                   <FaUsers />
 
@@ -210,7 +209,7 @@ function HomeScreen() {
                   <MdDashboard />
 
                   <NavLink
-                    to="/jobmonitoring"
+                    to="/jobhistory"
                     className={({ isActive }) =>
                       isActive ? "text-blue-700 " : ""
                     }
@@ -223,23 +222,24 @@ function HomeScreen() {
           </aside>
         ) : (
           <aside
-            className={`lg:w-72 ${isAsideOpen ? "block" : "hidden"} bg-gray-200 `}
+            className={`lg:w-72 ${
+              isAsideOpen ? "block" : "hidden"
+            } bg-gray-200 `}
           >
             <nav className="p-4">
-
               <div className="flex items-center  gap-x-4 px-2 ">
-
                 <Avatar variant="outline" className="cursor-pointer w-16 h-16">
                   <AvatarImage />
-                  <AvatarFallback>{userInfo.username.toUpperCase()[0]}</AvatarFallback>
+                  <AvatarFallback>
+                    {userInfo.username.toUpperCase()[0]}
+                  </AvatarFallback>
                 </Avatar>
 
-                <h2 className="text-lg font-bold text-gray-700 data-[focus]:bg-gray-100">{userInfo.username.toUpperCase()}</h2>
+                <h2 className="text-lg font-bold text-gray-700 data-[focus]:bg-gray-100">
+                  {userInfo.username.toUpperCase()}
+                </h2>
               </div>
-              <div className="border-gray-400 border-b-2 pb-4 ">
-
-              </div>
-
+              <div className="border-gray-400 border-b-2 pb-4 "></div>
 
               <ul className="text-lg font-bold text-gray-700 data-[focus]:bg-gray-100 p-6">
                 <li className="flex  items-center mb-3 gap-x-2 text-center ">
@@ -253,11 +253,10 @@ function HomeScreen() {
                   >
                     Dashboard
                   </NavLink>
-
                 </li>
                 <li className="flex  items-center mb-3 gap-x-2 text-center ">
-                <FaFile />
-                <NavLink
+                  <FaFile />
+                  <NavLink
                     to="/filemanager"
                     className={({ isActive }) =>
                       isActive ? "text-blue-700 " : ""
@@ -266,25 +265,20 @@ function HomeScreen() {
                   >
                     File Manager
                   </NavLink>
-
                 </li>
-               
-
-              
               </ul>
             </nav>
           </aside>
         )}
 
-
         <main className="flex-1 overflow-y-auto ">
           <Outlet />
         </main>
-
-
       </div>
 
-      <footer className={`bg-purple-600 h-14 flex justify-center items-center text-lg font-bold text-white data-[focus]:bg-gray-100`}>
+      <footer
+        className={`bg-purple-600 h-14 flex justify-center items-center text-lg font-bold text-white data-[focus]:bg-gray-100`}
+      >
         © 2024 by Aura Emanating Teknology Pvt. Ltd. Rights Reserved.
       </footer>
     </div>

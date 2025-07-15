@@ -55,7 +55,7 @@ export function Dashboard() {
         icon: <FiClock className="text-6xl md:text-8xl" />,
         title: "Job History",
         color: "bg-amber-600",
-        url: ''
+        url: '/jobhistory'
       },
       {
         id: 6,
@@ -76,7 +76,7 @@ export function Dashboard() {
         icon: <IoEyeSharp className="text-6xl md:text-8xl" />,
         title: "Cluster Monitoring",
         color: "bg-orange-600",
-        url: ''
+        url: '/cluster'
       },
     ];
   } else {

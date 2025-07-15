@@ -31,7 +31,7 @@ CREATE TABLE `acct_coord_table` (
   `user` tinytext NOT NULL,
   PRIMARY KEY (`acct`(42),`user`(42)),
   KEY `user` (`user`(42))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -58,7 +58,7 @@ CREATE TABLE `acct_table` (
   `description` text NOT NULL,
   `organization` text NOT NULL,
   PRIMARY KEY (`name`(42))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89,7 +89,7 @@ CREATE TABLE `clus_res_table` (
   `res_id` int(11) NOT NULL,
   `allowed` int(10) unsigned DEFAULT 0,
   PRIMARY KEY (`res_id`,`cluster`(42))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -148,7 +148,7 @@ CREATE TABLE `cluster_assoc_table` (
   UNIQUE KEY `udex` (`user`(42),`acct`(42),`partition`(42)),
   KEY `lft` (`lft`),
   KEY `account` (`acct`(42))
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -190,7 +190,7 @@ CREATE TABLE `cluster_assoc_usage_day_table` (
   `alloc_secs` bigint(20) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`,`id_tres`,`time_start`),
   KEY `archive_purge` (`mod_time`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -236,7 +236,7 @@ CREATE TABLE `cluster_assoc_usage_hour_table` (
   `alloc_secs` bigint(20) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`,`id_tres`,`time_start`),
   KEY `archive_purge` (`mod_time`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -290,7 +290,7 @@ CREATE TABLE `cluster_assoc_usage_month_table` (
   `alloc_secs` bigint(20) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`,`id_tres`,`time_start`),
   KEY `archive_purge` (`mod_time`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -337,7 +337,7 @@ CREATE TABLE `cluster_event_table` (
   PRIMARY KEY (`node_name`(42),`time_start`),
   KEY `rollup` (`time_start`,`time_end`,`state`),
   KEY `archive_purge` (`time_end`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -436,7 +436,7 @@ CREATE TABLE `cluster_job_env_table` (
   `env_vars` longtext DEFAULT NULL,
   PRIMARY KEY (`hash_inx`),
   UNIQUE KEY `env_hash_inx` (`env_hash`(66))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -462,7 +462,7 @@ CREATE TABLE `cluster_job_script_table` (
   `batch_script` longtext DEFAULT NULL,
   PRIMARY KEY (`hash_inx`),
   UNIQUE KEY `script_hash_inx` (`script_hash`(66))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -555,7 +555,7 @@ CREATE TABLE `cluster_job_table` (
   KEY `env_hash_inx` (`env_hash_inx`),
   KEY `script_hash_inx` (`script_hash_inx`),
   KEY `archive_purge` (`time_end`)
-) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -616,7 +616,7 @@ CREATE TABLE `cluster_last_ran_table` (
   `daily_rollup` bigint(20) unsigned NOT NULL DEFAULT 0,
   `monthly_rollup` bigint(20) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`hourly_rollup`,`daily_rollup`,`monthly_rollup`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -652,7 +652,7 @@ CREATE TABLE `cluster_resv_table` (
   `comment` text DEFAULT NULL,
   PRIMARY KEY (`id_resv`,`time_start`),
   KEY `archive_purge` (`time_end`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -718,7 +718,7 @@ CREATE TABLE `cluster_step_table` (
   `tres_usage_out_tot` text NOT NULL DEFAULT '',
   PRIMARY KEY (`job_db_inx`,`id_step`,`step_het_comp`),
   KEY `archive_purge` (`time_end`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -766,7 +766,7 @@ CREATE TABLE `cluster_suspend_table` (
   `time_end` bigint(20) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`job_db_inx`,`time_start`),
   KEY `archive_purge` (`time_end`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -803,7 +803,7 @@ CREATE TABLE `cluster_table` (
   `fed_id` int(10) unsigned NOT NULL DEFAULT 0,
   `fed_state` smallint(5) unsigned NOT NULL,
   PRIMARY KEY (`name`(42))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -839,7 +839,7 @@ CREATE TABLE `cluster_usage_day_table` (
   `over_secs` bigint(20) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_tres`,`time_start`),
   KEY `archive_purge` (`mod_time`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2239,7 +2239,7 @@ CREATE TABLE `cluster_usage_hour_table` (
   `over_secs` bigint(20) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_tres`,`time_start`),
   KEY `archive_purge` (`mod_time`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35035,7 +35035,7 @@ CREATE TABLE `cluster_usage_month_table` (
   `over_secs` bigint(20) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_tres`,`time_start`),
   KEY `archive_purge` (`mod_time`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35107,7 +35107,7 @@ CREATE TABLE `cluster_wckey_table` (
   `user` tinytext NOT NULL,
   PRIMARY KEY (`id_wckey`),
   UNIQUE KEY `udex` (`wckey_name`(42),`user`(42))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35136,7 +35136,7 @@ CREATE TABLE `cluster_wckey_usage_day_table` (
   `alloc_secs` bigint(20) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`,`id_tres`,`time_start`),
   KEY `archive_purge` (`mod_time`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35165,7 +35165,7 @@ CREATE TABLE `cluster_wckey_usage_hour_table` (
   `alloc_secs` bigint(20) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`,`id_tres`,`time_start`),
   KEY `archive_purge` (`mod_time`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35194,7 +35194,7 @@ CREATE TABLE `cluster_wckey_usage_month_table` (
   `alloc_secs` bigint(20) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`,`id_tres`,`time_start`),
   KEY `archive_purge` (`mod_time`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35217,7 +35217,7 @@ CREATE TABLE `convert_version_table` (
   `mod_time` bigint(20) unsigned NOT NULL DEFAULT 0,
   `version` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`version`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35245,7 +35245,7 @@ CREATE TABLE `federation_table` (
   `name` tinytext NOT NULL,
   `flags` int(10) unsigned DEFAULT 0,
   PRIMARY KEY (`name`(42))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35305,7 +35305,7 @@ CREATE TABLE `qos_table` (
   `limit_factor` double DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `udex` (`name`(42))
-) ENGINE=InnoDB AUTO_INCREMENT=113 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=113 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35341,7 +35341,7 @@ CREATE TABLE `res_table` (
   `last_consumed` int(10) unsigned DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `udex` (`name`(42),`server`(42),`type`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35366,7 +35366,7 @@ CREATE TABLE `table_defs_table` (
   `table_name` text NOT NULL,
   `definition` text NOT NULL,
   PRIMARY KEY (`table_name`(50))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35424,7 +35424,7 @@ CREATE TABLE `tres_table` (
   `name` tinytext NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   UNIQUE KEY `udex` (`type`(42),`name`(42))
-) ENGINE=InnoDB AUTO_INCREMENT=1001 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1001 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35463,7 +35463,7 @@ CREATE TABLE `txn_table` (
   `info` blob DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `archive_purge` (`timestamp`,`cluster`(42))
-) ENGINE=InnoDB AUTO_INCREMENT=171 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=171 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35656,7 +35656,7 @@ CREATE TABLE `user_table` (
   `name` tinytext NOT NULL,
   `admin_level` smallint(6) NOT NULL DEFAULT 1,
   PRIMARY KEY (`name`(42))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

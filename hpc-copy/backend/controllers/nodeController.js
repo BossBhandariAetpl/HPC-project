@@ -14,7 +14,8 @@ export const getAllNodes = asyncHandler(async (req, res) => {
 
     // Define the command to execute the script with sudo
     // const command = 'lsdef -t node -l';
-     const command = 'nodels';
+    //  const command = 'nodels';
+
 
   
 
